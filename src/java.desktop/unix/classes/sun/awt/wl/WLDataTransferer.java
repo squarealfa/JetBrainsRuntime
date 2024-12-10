@@ -393,6 +393,9 @@ public class WLDataTransferer extends DataTransferer {
             }
 
             for (String encoding : DataFlavorUtil.standardEncodings()) {
+                if (encoding == "UTF-16" || encoding == "UTF-16LE" || encoding == "UTF-16BE") {
+                    continue;
+                }
                 if (!encoding.equals(charset)) {
                     natives.add(baseType + ";charset=" + encoding);
                 }
